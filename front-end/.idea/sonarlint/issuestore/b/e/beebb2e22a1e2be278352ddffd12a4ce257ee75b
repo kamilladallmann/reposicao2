@@ -1,0 +1,9 @@
+
+ž%squid:RedundantThrowsDeclarationCheck"nRemove the declaration of thrown exception 'com.google.gson.JsonSyntaxException' which is a runtime exception.(°û 6
+‹squid:S11923"hDefine a constant instead of duplicating this literal "http://localhost:9000/servico/pais/{id}" 3 times.(é’ñØùÿÿÿÿ8«ðõŒ½-
+ksquid:S1192,"ODefine a constant instead of duplicating this literal "redirect:/pais" 3 times.(Ä«Í€üÿÿÿÿ
+Osquid:S1197"8Move the array designator from the variable to the type.(ÒÝù 
+†squid:S1192"cDefine a constant instead of duplicating this literal "http://localhost:9000/servico/pais" 3 times.(öÿ÷—úÿÿÿÿ8«ðõŒ½-
+Ÿ%squid:RedundantThrowsDeclarationCheck;"nRemove the declaration of thrown exception 'com.google.gson.JsonSyntaxException' which is a runtime exception.(Ø‰ù˜
+Osquid:S1197J"8Move the array designator from the variable to the type.(ÒÝù 
+gsquid:S1192'"QDefine a constant instead of duplicating this literal "application/json" 4 times.(­ê¾3
