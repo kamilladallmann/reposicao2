@@ -37,16 +37,6 @@
                               <input value="${(professorAtual.siape)!}"  name="siape" type="text" class="form-control" id="siape">
                           </div>
                           <div class="form-group">
-                              <label for="departamento">Departamento:</label>
-                              <select value="${(professorAtual.departamentoId)!}" name="departamentoId" id="departamentoId" class="form-control" required>
-                                   <option selected disabled>Selecione uma opção</option>
-                                   <#list departamentos as departamento>
-                                        <option value="${(departamento.id)!}">${departamento.nome}</option>
-                                   </#list>
-                              </select>
-                          </div>
-
-                          <div class="form-group">
                                <label for="campus">Campus:</label>
                                <input value="${(professorAtual.campus)!}"  name="campus" type="text" class="form-control" id="campus">
                           </div>
@@ -63,7 +53,6 @@
                               <tr>
                                   <th>Nome</th>
                                   <th>Siape</th>
-                                  <th>Departamento</th>
                                   <th>Câmpus</th>
                                   <th>Ações</th>
                               </tr>
@@ -73,7 +62,6 @@
                                   <tr>
                                       <td>${professor.nome}</td>
                                       <td>${professor.siape}</td>
-                                      <td>${professor.departamento.nome}</td>
                                       <td>${professor.campus}</td>
                                       <td>
                                           <a href="/professor/prepara-alterar?id=${professor.id}">Alterar</a>

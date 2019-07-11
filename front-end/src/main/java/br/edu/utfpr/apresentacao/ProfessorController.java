@@ -16,22 +16,9 @@ import java.util.Optional;
 @Controller
 public class ProfessorController {
 
-    private DepartamentoModel arrayDepartamentos[] =  new DepartamentoModel[0];
 
     @GetMapping("/professor")
     public String inicial(Model data) throws JsonSyntaxException, UnirestException {
-
-        arrayDepartamentos = new Gson()
-                .fromJson(
-                        Unirest
-                                .get("http://localhost:9000/servico/departamento")
-                                .asJson()
-                                .getBody()
-                                .toString(),
-                        DepartamentoModel[].class
-                );
-
-        data.addAttribute("departamentos", arrayDepartamentos);
 
         ProfessorModel arrayProfessores[] = new Gson()
                 .fromJson(
@@ -52,10 +39,6 @@ public class ProfessorController {
     @PostMapping ("/professor/criar")
     public String criar(ProfessorModel professor) throws UnirestException {
 
-        for(int i = 0; i <= arrayDepartamentos.length -1 ; i++) {
-            if(arrayDepartamentos[i].getId() == professor.getDepartamentoId())
-                professor.setDepartamento(arrayDepartamentos[i]);
-        }
 
         Unirest.post("http://localhost:9000/servico/professor")
                 .header("Content-type", "application/json")
@@ -80,16 +63,6 @@ public class ProfessorController {
     @GetMapping ("/professor/prepara-alterar")
     public String preparaAlterar (@RequestParam int id, Model data) throws JsonSyntaxException, UnirestException {
 
-        arrayDepartamentos = new Gson()
-                .fromJson(
-                        Unirest
-                                .get("http://localhost:9000/servico/departamento")
-                                .asJson()
-                                .getBody()
-                                .toString(),
-                        DepartamentoModel[].class
-                );
-
         ProfessorModel arrayProfessores[] = new Gson()
                 .fromJson(
                         Unirest
@@ -105,7 +78,6 @@ public class ProfessorController {
         ProfessorModel professorExistente = professorExistenteOptional.get();
 
         data.addAttribute("professorAtual", professorExistente);
-        data.addAttribute("departamentos", arrayDepartamentos);
         data.addAttribute("professores", arrayProfessores);
 
         return "professor-view-alterar";

@@ -36,15 +36,6 @@
                               <label for="siape">Siape:</label>
                               <input value="${(professorAtual.siape)!}"  name="siape" type="text" class="form-control" id="siape">
                           </div>
-                          <div class="form-group">
-                              <label for="departamentoId">Departamento:</label>
-                              <select value="${(professorAtual.departamento.id)!}" name="departamento.id" id="departamento.id" class="form-control" required>
-                                   <option disabled>Selecione uma opção</option>
-                                   <#list departamentos as departamento>
-                                        <option value="${(departamento.id)!}" <#if (departamento.id == professorAtual.departamento.id)> selected="selected"</#if>> ${departamento.nome}</option>
-                                   </#list>
-                              </select>
-                          </div>
 
                           <div class="form-group">
                                <label for="campus">Campus:</label>
@@ -63,7 +54,6 @@
                               <tr>
                                   <th>Nome</th>
                                   <th>Siape</th>
-                                  <th>Departamento</th>
                                   <th>Câmpus</th>
                                   <th>Ações</th>
                               </tr>
@@ -73,7 +63,6 @@
                                   <tr>
                                       <td>${professor.nome}</td>
                                       <td>${professor.siape}</td>
-                                      <td>${professor.departamento.nome}</td>
                                       <td>${professor.campus}</td>
                                       <td>
                                           <a href="/professor/prepara-alterar?id=${professor.id}">Alterar</a>

@@ -21,5 +21,4 @@ public class RequerimentoDTO {
     private String motivoAusencia;
     private double porcentagemConcordam;
     private String campus;
-    private DepartamentoDTO departamento;
 }

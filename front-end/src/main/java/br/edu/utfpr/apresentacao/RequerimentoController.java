@@ -16,7 +16,6 @@ import java.util.Optional;
 @Controller
 public class RequerimentoController {
 
-    private DepartamentoModel arrayDepartamentos[] =  new DepartamentoModel[0];
     private DisciplinaModel arrayDisciplinas[] =  new DisciplinaModel[0];
     private ProfessorModel arrayProfessores[] =  new ProfessorModel[0];
 
@@ -47,17 +46,6 @@ public class RequerimentoController {
 
         data.addAttribute("professores", arrayProfessores);
 
-        arrayDepartamentos = new Gson()
-                .fromJson(
-                        Unirest
-                                .get("http://localhost:9000/servico/departamento")
-                                .asJson()
-                                .getBody()
-                                .toString(),
-                        DepartamentoModel[].class
-                );
-
-        data.addAttribute("departamentos", arrayDepartamentos);
 
         arrayDisciplinas = new Gson()
                 .fromJson(
@@ -76,11 +64,6 @@ public class RequerimentoController {
 
     @PostMapping("/requerimento/criar")
     public String criar(RequerimentoModel requerimento) throws UnirestException {
-
-        for(int i=0;i <= arrayDepartamentos.length -1;i++) {
-            if(arrayDepartamentos[i].getId() == requerimento.getDepartamentoId())
-                requerimento.setDepartamento(arrayDepartamentos[i]);
-        }
 
         for(int i=0;i <= arrayDisciplinas.length -1;i++) {
             if(arrayDisciplinas[i].getId() == requerimento.getDisciplinaId())
@@ -115,15 +98,6 @@ public class RequerimentoController {
     @GetMapping ("/requerimento/prepara-alterar")
     public String preparaAlterar (@RequestParam int id, Model data) throws JsonSyntaxException, UnirestException {
 
-        arrayDepartamentos = new Gson()
-                .fromJson(
-                        Unirest
-                                .get("http://localhost:9000/servico/departamento")
-                                .asJson()
-                                .getBody()
-                                .toString(),
-                        DepartamentoModel[].class
-                );
 
         arrayDisciplinas = new Gson()
                 .fromJson(
@@ -144,8 +118,7 @@ public class RequerimentoController {
                                 .toString(),
                         ProfessorModel[].class
                 );
-
-
+        
 
         RequerimentoModel arrayRequerimentos[] = new Gson()
                 .fromJson(
@@ -161,7 +134,6 @@ public class RequerimentoController {
         RequerimentoModel requerimentoExistente = requerimentoExistenteOptional.get();
 
         data.addAttribute("requerimentoAtual", requerimentoExistente);
-        data.addAttribute("departamentos", arrayDepartamentos);
         data.addAttribute("professores", arrayProfessores);
         data.addAttribute("disciplinas", arrayDisciplinas);
         data.addAttribute("requerimentos", arrayRequerimentos);

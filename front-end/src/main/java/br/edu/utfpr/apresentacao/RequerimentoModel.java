@@ -23,7 +23,5 @@ public class RequerimentoModel {
     private String motivoAusencia;
     private double porcentagemConcordam;
     private String campus;
-    private int departamentoId;
-    private DepartamentoModel departamento;
     private String coordenador;
 }

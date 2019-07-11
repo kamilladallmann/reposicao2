@@ -53,15 +53,7 @@
                                    </#list>
                               </select>
                           </div>
-                          <div class="form-group">
-                              <label for="departamento">Departamento:</label>
-                              <select value="${(requerimentoAtual.departamentoId)!}"name="departamentoId" id="departamentoId" class="form-control" required>
-                                   <option selected disabled>Selecione uma opção</option>
-                                   <#list departamentos as departamento>
-                                        <option value="${departamento.id}">${departamento.nome}</option>
-                                   </#list>
-                              </select>
-                          </div>
+
                                <label for="coordenador">Coordenador:</label>
                                <input value="${(requerimentoAtual.coordenador)!}"  name="coordenador" type="text" class="form-control" id="coordenador">
                           </div>
@@ -114,7 +106,6 @@
                                   <th>Motivo</th>
                                   <th>%</th>
                                   <th>Campus</th>
-                                  <th>Departamento</th>
                                   <th>Ações</th>
                               </tr>
                           </thead>
@@ -132,7 +123,6 @@
                                       <th>${requerimento.motivoAusencia}</td>
                                       <th>${requerimento.porcentagemConcordam}</td>
                                       <td>${requerimento.campus}</td>
-                                      <td>${requerimento.departamento.nome}</td>
                                       <td>
                                           <a href="/requerimento/prepara-alterar?id=${requerimento.id}">Alterar</a>
                                           <a href="/requerimento/excluir?id=${requerimento.id}">Excluir</a>

@@ -29,9 +29,9 @@ public class ServicoDisciplina {
         ).collect(Collectors.toList());
 
         professores = Stream.of(
-                ProfessorDTO.builder().id(1).nome("Gabriel Costa").campus("Curitiba").departamento(departamentos.get(0)).siape("123456").build(),
-                ProfessorDTO.builder().id(2).nome("Daniele Costa").campus("Cornélio Procópio").departamento(departamentos.get(1)).siape("67890").build(),
-                ProfessorDTO.builder().id(3).nome("William Watanabe").campus("Cornélio Procópio").departamento(departamentos.get(0)).siape("34343").build()
+                ProfessorDTO.builder().id(1).nome("Gabriel Costa").campus("Curitiba").siape("123456").build(),
+                ProfessorDTO.builder().id(2).nome("Daniele Costa").campus("Cornélio Procópio").siape("67890").build(),
+                ProfessorDTO.builder().id(3).nome("William Watanabe").campus("Cornélio Procópio").siape("34343").build()
         ).collect(Collectors.toList());
 
         cursos = Stream.of(
