@@ -16,16 +16,35 @@ import java.util.stream.Stream;
 public class ServicoDisciplina {
 
     private List<DisciplinaDTO> disciplinas;
+    private List<CursoDTO> cursos;
+    private List<ProfessorDTO> professores;
+    private List<DepartamentoDTO> departamentos;
 
     public ServicoDisciplina(){
 
+        departamentos = Stream.of(
+                DepartamentoDTO.builder().id(1).nome("DACOMP").build(),
+                DepartamentoDTO.builder().id(2).nome("DAMAT").build(),
+                DepartamentoDTO.builder().id(3).nome("DAELT").build()
+        ).collect(Collectors.toList());
+
+        professores = Stream.of(
+                ProfessorDTO.builder().id(1).nome("Gabriel Costa").campus("Curitiba").departamento(departamentos.get(0)).siape("123456").build(),
+                ProfessorDTO.builder().id(2).nome("Daniele Costa").campus("Cornélio Procópio").departamento(departamentos.get(1)).siape("67890").build(),
+                ProfessorDTO.builder().id(3).nome("William Watanabe").campus("Cornélio Procópio").departamento(departamentos.get(0)).siape("34343").build()
+        ).collect(Collectors.toList());
+
+        cursos = Stream.of(
+                CursoDTO.builder().id(1).departamento(departamentos.get(0)).nome("Engenharia de Software").build(),
+                CursoDTO.builder().id(2).departamento(departamentos.get(1)).nome("Matemática").build(),
+                CursoDTO.builder().id(3).departamento(departamentos.get(2)).nome("Engenharia Elétrica").build()
+        ).collect(Collectors.toList());
+
         disciplinas = Stream.of(
-                DisciplinaDTO.builder()
-                        .id(1)
-                        .nome("Arquitetura de Software")
-                        .curso("Engenharia de Software")
-                        .professor("Gabriel Costa")
-                .build()).collect(Collectors.toList());
+                DisciplinaDTO.builder().id(1).codigo("IFL7K").nome("Arquitetura de Software").curso(cursos.get(0)).professor(professores.get(0)).build(),
+                DisciplinaDTO.builder().id(2).codigo("IFL7I").nome("Programação Web 2").curso(cursos.get(0)).professor(professores.get(2)).build(),
+                DisciplinaDTO.builder().id(3).codigo("CFL2A").nome("Cálculo I").curso(cursos.get(1)).professor(professores.get(1)).build()
+        ).collect(Collectors.toList());
 
     }
 
@@ -66,6 +85,7 @@ public class ServicoDisciplina {
 
         disciplinaExistente.ifPresent(d -> {
             d.setNome(disciplina.getNome());
+            d.setCodigo(disciplina.getCodigo());
             d.setCurso(disciplina.getCurso());
             d.setProfessor(disciplina.getProfessor());
         });

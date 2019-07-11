@@ -1,0 +1,12 @@
+
+Usquid:S1197+"8Move the array designator from the variable to the type.(şÿ‚h8öìê½-
+squid:S1192"kDefine a constant instead of duplicating this literal "http://localhost:9000/servico/requerimento" 3 times.(ÑŒ¾„úÿÿÿÿ8‘«¦ä½-
+¦%squid:RedundantThrowsDeclarationCheck^"nRemove the declaration of thrown exception 'com.google.gson.JsonSyntaxException' which is a runtime exception.(Ø‰ù˜8”í†é½-
+nsquid:S1192J"QDefine a constant instead of duplicating this literal "application/json" 4 times.(­ê¾38”í†é½-
+Vsquid:S1197"8Move the array designator from the variable to the type.(Äµå†8–²ƒé½-
+¥%squid:RedundantThrowsDeclarationCheck"nRemove the declaration of thrown exception 'com.google.gson.JsonSyntaxException' which is a runtime exception.(°û 68Åèä½-
+Vsquid:S1197m"8Move the array designator from the variable to the type.(¹Éš·8”í†é½-
+squid:S1192V"pDefine a constant instead of duplicating this literal "http://localhost:9000/servico/requerimento/{id}" 3 times.( ŸæÈ8”í†é½-
+Vsquid:S1197"8Move the array designator from the variable to the type.(¹Éš·8Åèä½-
+[squid:S11977"8Move the array designator from the variable to the type.(‚­²øÿÿÿÿ8 Úë½-
+zsquid:S1192O"WDefine a constant instead of duplicating this literal "redirect:/requerimento" 3 times.(Üıâîùÿÿÿÿ8”í†é½-

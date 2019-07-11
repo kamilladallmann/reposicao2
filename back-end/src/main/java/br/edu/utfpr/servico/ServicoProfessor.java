@@ -14,18 +14,20 @@ import java.util.stream.Stream;
 public class ServicoProfessor {
 
     private List<ProfessorDTO> professores;
+    private List<DepartamentoDTO> departamentos;
 
     public ServicoProfessor(){
 
+        departamentos = Stream.of(
+                DepartamentoDTO.builder().id(1).nome("DACOMP").build(),
+                DepartamentoDTO.builder().id(2).nome("DAMAT").build(),
+                DepartamentoDTO.builder().id(3).nome("DAELT").build()
+        ).collect(Collectors.toList());
+
         professores = Stream.of(
-                ProfessorDTO
-                        .builder()
-                        .id(1)
-                        .nome("Gabriel Costa")
-                        .siape("1111")
-                        .departamento("DACOMP")
-                        .campus("Cornélio Procópio")
-                        .build()
+                ProfessorDTO.builder().id(1).nome("Gabriel Costa").campus("Curitiba").departamento(departamentos.get(0)).siape("123456").build(),
+                ProfessorDTO.builder().id(2).nome("Daniele Costa").campus("Cornélio Procópio").departamento(departamentos.get(1)).siape("67890").build(),
+                ProfessorDTO.builder().id(3).nome("William Watanabe").campus("Cornélio Procópio").departamento(departamentos.get(0)).siape("34343").build()
         ).collect(Collectors.toList());
     }
 

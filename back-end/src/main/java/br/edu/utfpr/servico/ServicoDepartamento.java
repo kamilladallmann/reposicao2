@@ -1,6 +1,7 @@
 package br.edu.utfpr.servico;
 
 import br.edu.utfpr.dto.DepartamentoDTO;
+import br.edu.utfpr.dto.ProfessorDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +14,16 @@ import java.util.stream.Stream;
 public class ServicoDepartamento {
 
     private List<DepartamentoDTO> departamentos;
+    private List<ProfessorDTO> professores;
 
     public ServicoDepartamento(){
 
         departamentos = Stream.of(
-                DepartamentoDTO.builder().id(1).nome("DACOMP").build()
+                DepartamentoDTO.builder().id(1).nome("DACOMP").build(),
+                DepartamentoDTO.builder().id(2).nome("DAMAT").build(),
+                DepartamentoDTO.builder().id(3).nome("DAELT").build()
         ).collect(Collectors.toList());
+
     }
 
     @GetMapping("/servico/departamento")

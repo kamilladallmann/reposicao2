@@ -10,8 +10,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 @Controller
 public class RequerimentoController {
+
+    private DepartamentoModel arrayDepartamentos[] =  new DepartamentoModel[0];
+    private DisciplinaModel arrayDisciplinas[] =  new DisciplinaModel[0];
+    private ProfessorModel arrayProfessores[] =  new ProfessorModel[0];
 
     @GetMapping("/requerimento")
     public String inicial(Model data) throws JsonSyntaxException, UnirestException {
@@ -28,11 +35,62 @@ public class RequerimentoController {
 
         data.addAttribute("requerimentos", arrayRequerimentos);
 
+        arrayProfessores = new Gson()
+                .fromJson(
+                        Unirest
+                                .get("http://localhost:9000/servico/professor")
+                                .asJson()
+                                .getBody()
+                                .toString(),
+                        ProfessorModel[].class
+                );
+
+        data.addAttribute("professores", arrayProfessores);
+
+        arrayDepartamentos = new Gson()
+                .fromJson(
+                        Unirest
+                                .get("http://localhost:9000/servico/departamento")
+                                .asJson()
+                                .getBody()
+                                .toString(),
+                        DepartamentoModel[].class
+                );
+
+        data.addAttribute("departamentos", arrayDepartamentos);
+
+        arrayDisciplinas = new Gson()
+                .fromJson(
+                        Unirest
+                                .get("http://localhost:9000/servico/disciplina")
+                                .asJson()
+                                .getBody()
+                                .toString(),
+                        DisciplinaModel[].class
+                );
+
+        data.addAttribute("disciplinas", arrayDisciplinas);
+
         return "requerimento-view";
     }
 
     @PostMapping("/requerimento/criar")
     public String criar(RequerimentoModel requerimento) throws UnirestException {
+
+        for(int i=0;i <= arrayDepartamentos.length -1;i++) {
+            if(arrayDepartamentos[i].getId() == requerimento.getDepartamentoId())
+                requerimento.setDepartamento(arrayDepartamentos[i]);
+        }
+
+        for(int i=0;i <= arrayDisciplinas.length -1;i++) {
+            if(arrayDisciplinas[i].getId() == requerimento.getDisciplinaId())
+                requerimento.setDisciplina(arrayDisciplinas[i]);
+        }
+
+        for(int i=0;i <= arrayProfessores.length -1;i++) {
+            if(arrayProfessores[i].getId() == requerimento.getProfessorId())
+                requerimento.setProfessor(arrayProfessores[i]);
+        }
 
         Unirest.post("http://localhost:9000/servico/requerimento")
                 .header("Content-type", "application/json")
@@ -57,18 +115,37 @@ public class RequerimentoController {
     @GetMapping ("/requerimento/prepara-alterar")
     public String preparaAlterar (@RequestParam int id, Model data) throws JsonSyntaxException, UnirestException {
 
-        RequerimentoModel requerimentoExistente = new Gson()
+        arrayDepartamentos = new Gson()
                 .fromJson(
                         Unirest
-                                .get("http://localhost:9000/servico/requerimento/{id}")
-                                .routeParam("id", String.valueOf(id))
+                                .get("http://localhost:9000/servico/departamento")
                                 .asJson()
                                 .getBody()
                                 .toString(),
-                        RequerimentoModel.class
+                        DepartamentoModel[].class
                 );
 
-        data.addAttribute("requerimentoAtual", requerimentoExistente);
+        arrayDisciplinas = new Gson()
+                .fromJson(
+                        Unirest
+                                .get("http://localhost:9000/servico/disciplina")
+                                .asJson()
+                                .getBody()
+                                .toString(),
+                        DisciplinaModel[].class
+                );
+
+        arrayProfessores = new Gson()
+                .fromJson(
+                        Unirest
+                                .get("http://localhost:9000/servico/professor")
+                                .asJson()
+                                .getBody()
+                                .toString(),
+                        ProfessorModel[].class
+                );
+
+
 
         RequerimentoModel arrayRequerimentos[] = new Gson()
                 .fromJson(
@@ -80,6 +157,13 @@ public class RequerimentoController {
                         RequerimentoModel[].class
                 );
 
+        Optional<RequerimentoModel> requerimentoExistenteOptional = Arrays.stream(arrayRequerimentos).filter(p -> p.getId() ==  id).findAny();
+        RequerimentoModel requerimentoExistente = requerimentoExistenteOptional.get();
+
+        data.addAttribute("requerimentoAtual", requerimentoExistente);
+        data.addAttribute("departamentos", arrayDepartamentos);
+        data.addAttribute("professores", arrayProfessores);
+        data.addAttribute("disciplinas", arrayDisciplinas);
         data.addAttribute("requerimentos", arrayRequerimentos);
 
         return "requerimento-view-alterar";

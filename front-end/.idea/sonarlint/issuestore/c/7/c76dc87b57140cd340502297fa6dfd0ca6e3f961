@@ -1,9 +1,10 @@
 
-Šsquid:S11922"mDefine a constant instead of duplicating this literal "http://localhost:9000/servico/professor/{id}" 3 times.(ò»£8ïçÍŒ½-
-¥%squid:RedundantThrowsDeclarationCheck"nRemove the declaration of thrown exception 'com.google.gson.JsonSyntaxException' which is a runtime exception.(°û 68•»ÚÂ¼-
-nsquid:S1192&"QDefine a constant instead of duplicating this literal "application/json" 4 times.(­ê¾38•»ÚÂ¼-
-Vsquid:S1197"8Move the array designator from the variable to the type.(Äµå†8•»ÚÂ¼-
-Vsquid:S1197I"8Move the array designator from the variable to the type.(Äµå†8•»ÚÂ¼-
+nsquid:S11923"QDefine a constant instead of duplicating this literal "application/json" 4 times.(­ê¾38•»ÚÂ¼-
 †squid:S1192"hDefine a constant instead of duplicating this literal "http://localhost:9000/servico/professor" 3 times.(ğè³«8°ÎŒ½-
-¦%squid:RedundantThrowsDeclarationCheck:"nRemove the declaration of thrown exception 'com.google.gson.JsonSyntaxException' which is a runtime exception.(Ø‰ù˜8•»ÚÂ¼-
-rsquid:S1192+"TDefine a constant instead of duplicating this literal "redirect:/professor" 3 times.(Şîí8Ğ­óÂ¼-
+rsquid:S11928"TDefine a constant instead of duplicating this literal "redirect:/professor" 3 times.(Şîí8Ğ­óÂ¼-
+Vsquid:S1197V"8Move the array designator from the variable to the type.(Äµå†8•»ÚÂ¼-
+Usquid:S1197"8Move the array designator from the variable to the type.(şÿ‚h8ı‡óí½-
+Šsquid:S1192?"mDefine a constant instead of duplicating this literal "http://localhost:9000/servico/professor/{id}" 3 times.(ò»£8ïçÍŒ½-
+¦%squid:RedundantThrowsDeclarationCheckG"nRemove the declaration of thrown exception 'com.google.gson.JsonSyntaxException' which is a runtime exception.(Ø‰ù˜8•»ÚÂ¼-
+Vsquid:S1197"8Move the array designator from the variable to the type.(Äµå†8•»ÚÂ¼-
+¥%squid:RedundantThrowsDeclarationCheck"nRemove the declaration of thrown exception 'com.google.gson.JsonSyntaxException' which is a runtime exception.(°û 68•»ÚÂ¼-

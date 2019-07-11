@@ -1,87 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
+      <!DOCTYPE html>
+      <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gerencia Pais</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <title>Gerencia Professor</title>
+          <!-- Latest compiled and minified CSS -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+          <!-- jQuery library -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+          <!-- Popper JS -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
+          <!-- Latest compiled JavaScript -->
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      </head>
 
-<body>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Gerenciamento de País</h1>
-            <p>Essa página é responsável por fazer o geranciamento de professores. </p>
-        </div>
-        <div class="row">
-            <div class="col">
-                <form action="/professor/alterar" method="post">
-                    <div class="form-group">
-                        <label for="nome">Nome:</label>
-                        <input value="${(professorAtual.nome)!}" name="nome" type="text" class="form-control" id="nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="siape">Siape:</label>
-                        <input value="${(professorAtual.siape)!}"  name="siape" type="text" class="form-control" id="siape">
-                    </div>
-                    <div class="form-group">
-                         <label for="departamento">Departamento:</label>
-                         <input value="${(professorAtual.departamento)!}"  name="departamento" type="text" class="form-control" id="departamento">
-                    </div>
-                    <div class="form-group">
-                        <label for="campus">Campus:</label>
-                        <input value="${(professorAtual.campus)!}"  name="campus" type="text" class="form-control" id="campus">
-                    </div>
+      <body>
+          <div class="container">
+              <div class="jumbotron">
+                  <h1>Gerenciamento de Professor</h1>
+                  <p>Essa página é responsável por fazer o geranciamento de professores. </p>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <form action="/professor/alterar" method="post">
+                          <div class="form-group">
+                              <label for="nome">Nome:</label>
+                              <input value="${(professorAtual.nome)!}" name="nome" type="text" class="form-control" id="nome">
+                          </div>
+                          <div class="form-group">
+                              <label for="siape">Siape:</label>
+                              <input value="${(professorAtual.siape)!}"  name="siape" type="text" class="form-control" id="siape">
+                          </div>
+                          <div class="form-group">
+                              <label for="departamentoId">Departamento:</label>
+                              <select value="${(professorAtual.departamento.id)!}" name="departamento.id" id="departamento.id" class="form-control" required>
+                                   <option disabled>Selecione uma opção</option>
+                                   <#list departamentos as departamento>
+                                        <option value="${(departamento.id)!}" <#if (departamento.id == professorAtual.departamento.id)> selected="selected"</#if>> ${departamento.nome}</option>
+                                   </#list>
+                              </select>
+                          </div>
 
-                    <input type="hidden" name="id" value="${(professorAtual.id)!}"></input>
+                          <div class="form-group">
+                               <label for="campus">Campus:</label>
+                               <input value="${(professorAtual.campus)!}"  name="campus" type="text" class="form-control" id="campus">
+                          </div>
 
-                    <button type="submit" class="btn btn-warning">Alterar</button>
-                </form>
+                          <button type="submit" class="btn btn-primary">Criar</button>
+                      </form>
 
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <table class="table table-striped table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Nome</th>
-                            <th>Siape</th>
-                            <th>Departamento</th>
-                            <th>Câmpus</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <#list professores as professor>
-                            <tr>
-                                <td>${professor.nome}</td>
-                                <td>${professor.siape}</td>
-                                <td>${professor.departamento}</td>
-                                <td>${professor.campus}</td>
-                                <td>
-                                    <a href="/professor/prepara-alterar?id=${professor.id}">Alterar</a>
-                                    <a href="/professor/excluir?id=${professor.id}">Excluir</a>
-                                </td>
-                            </tr>        
-                        </#list>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</body>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <table class="table table-striped table-hover">
+                          <thead class="thead-dark">
+                              <tr>
+                                  <th>Nome</th>
+                                  <th>Siape</th>
+                                  <th>Departamento</th>
+                                  <th>Câmpus</th>
+                                  <th>Ações</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <#list professores as professor>
+                                  <tr>
+                                      <td>${professor.nome}</td>
+                                      <td>${professor.siape}</td>
+                                      <td>${professor.departamento.nome}</td>
+                                      <td>${professor.campus}</td>
+                                      <td>
+                                          <a href="/professor/prepara-alterar?id=${professor.id}">Alterar</a>
+                                          <a href="/professor/excluir?id=${professor.id}">Excluir</a>
+                                      </td>
+                                  </tr>
+                              </#list>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </body>
 
-</html>
+      </html>

@@ -1,0 +1,4 @@
+
+psquid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8¾­’ï½-
+wsquid:S1192!"TDefine a constant instead of duplicating this literal "CornÃ©lio ProcÃ³pio" 3 times.(»¨¼øÿÿÿÿ8çÀíê½-
+[squid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8í‰Áí½-

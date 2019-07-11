@@ -15,18 +15,20 @@ import java.util.stream.Stream;
 public class ServicoCurso {
 
     private List<CursoDTO> cursos;
+    private List<DepartamentoDTO> departamentos;
 
     public ServicoCurso(){
 
+        departamentos = Stream.of(
+                DepartamentoDTO.builder().id(1).nome("DACOMP").build(),
+                DepartamentoDTO.builder().id(2).nome("DAMAT").build(),
+                DepartamentoDTO.builder().id(3).nome("DAELT").build()
+        ).collect(Collectors.toList());
+
         cursos = Stream.of(
-                CursoDTO.builder()
-                        .id(1)
-                        .nome("Engenharia de Software")
-                        .departamento(DepartamentoDTO.builder()
-                                .id(1)
-                                .nome("DACOMP")
-                                .build())
-                .build()
+                CursoDTO.builder().id(1).departamento(departamentos.get(0)).nome("Engenharia de Software").build(),
+                CursoDTO.builder().id(2).departamento(departamentos.get(1)).nome("Matemática").build(),
+                CursoDTO.builder().id(3).departamento(departamentos.get(2)).nome("Engenharia Elétrica").build()
         ).collect(Collectors.toList());
     }
 

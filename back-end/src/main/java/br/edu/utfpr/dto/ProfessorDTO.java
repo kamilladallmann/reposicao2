@@ -9,7 +9,7 @@ public class ProfessorDTO {
     private int id;
     private String nome;
     private String siape;
-    private String departamento;
+    private DepartamentoDTO departamento;
     private String campus;
 }
 

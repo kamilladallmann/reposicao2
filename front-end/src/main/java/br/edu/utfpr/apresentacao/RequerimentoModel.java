@@ -13,14 +13,17 @@ public class RequerimentoModel {
     private int id;
     private String dataAusencia;
     private String dataReposicao;
-    private String professor;
-    private String coordenador;
-    private String disciplina;
+    private int professorId;
+    private ProfessorModel professor;
+    private int disciplinaId;
+    private DisciplinaModel disciplina;
     private String aulasParaRepor;
     private int qtddAulasTotal;
     private String alunosConcordaram;
     private String motivoAusencia;
     private double porcentagemConcordam;
     private String campus;
-    private String departamento;
+    private int departamentoId;
+    private DepartamentoModel departamento;
+    private String coordenador;
 }

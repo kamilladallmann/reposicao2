@@ -38,8 +38,14 @@
                           </div>
                           <div class="form-group">
                               <label for="departamento">Departamento:</label>
-                              <input value="${(professorAtual.departamento)!}"  name="departamento" type="text" class="form-control" id="departamento">
+                              <select value="${(professorAtual.departamentoId)!}" name="departamentoId" id="departamentoId" class="form-control" required>
+                                   <option selected disabled>Selecione uma opção</option>
+                                   <#list departamentos as departamento>
+                                        <option value="${(departamento.id)!}">${departamento.nome}</option>
+                                   </#list>
+                              </select>
                           </div>
+
                           <div class="form-group">
                                <label for="campus">Campus:</label>
                                <input value="${(professorAtual.campus)!}"  name="campus" type="text" class="form-control" id="campus">
@@ -67,7 +73,7 @@
                                   <tr>
                                       <td>${professor.nome}</td>
                                       <td>${professor.siape}</td>
-                                      <td>${professor.departamento}</td>
+                                      <td>${professor.departamento.nome}</td>
                                       <td>${professor.campus}</td>
                                       <td>
                                           <a href="/professor/prepara-alterar?id=${professor.id}">Alterar</a>

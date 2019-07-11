@@ -38,23 +38,40 @@
                           </div>
                           <div class="form-group">
                               <label for="professor">Professor:</label>
-                              <input value="${(requerimentoAtual.professor)!}"  name="professor" type="text" class="form-control" id="professor">
+                              <select value="{(requerimentoAtual.professorId)!} "name="professorId" id="professorId" class="form-control" required>
+                              <option selected disabled>Selecione uma opção</option>
+                                   <#list professores as professor>
+                                        <option value="${professor.id}">${professor.nome}</option>
+                                   </#list>
+                              </select>
+                          <div class="form-group">
+                              <label for="disciplina">Disciplina:</label>
+                              <select value="{(requerimentoAtual.departamentoId)!}" name="disciplinaId" id="disciplinaId" class="form-control" required>
+                                   <option selected disabled>Selecione uma opção</option>
+                                   <#list disciplinas as disciplina>
+                                        <option value="${disciplina.id}">${disciplina.nome}</option>
+                                   </#list>
+                              </select>
                           </div>
                           <div class="form-group">
+                              <label for="departamento">Departamento:</label>
+                              <select value="${(requerimentoAtual.departamentoId)!}"name="departamentoId" id="departamentoId" class="form-control" required>
+                                   <option selected disabled>Selecione uma opção</option>
+                                   <#list departamentos as departamento>
+                                        <option value="${departamento.id}">${departamento.nome}</option>
+                                   </#list>
+                              </select>
+                          </div>
                                <label for="coordenador">Coordenador:</label>
                                <input value="${(requerimentoAtual.coordenador)!}"  name="coordenador" type="text" class="form-control" id="coordenador">
                           </div>
                           <div class="form-group">
-                               <label for="disciplina">Disciplina:</label>
-                               <input value="${(requerimentoAtual.disciplina)!}"  name="disciplina" type="text" class="form-control" id="disciplina">
-                          </div>
-                          <div class="form-group">
                                <label for="aulasParaRepor">Aulas que serão repostas:</label>
-                               <input value="${(requerimentoAtual.aulasParaRepor)!}"  name="aulasParaRepor" type="text" class="form-control" id="aulasParaRepor">
+                               <input value="${(requerimentoAtual.aulasParaRepor)!}"  name="aulasParaRepor" type="textArea" class="form-control" id="aulasParaRepor">
                           </div>
                           <div class="form-group">
-                               <label for="qtddAulasTotal"> Quantidade de Aulas a serem repostas no total:</label>
-                               <input value="${(requerimentoAtual.qtddAulasTotal)!}"  name="qtddAulasTotal" type="text" class="form-control" id="qtddAulasTotal">
+                               <label for="qtddAulasTotal"> Quantidade total de aulas a serem repostas:</label>
+                               <input value="${(requerimentoAtual.qtddAulasTotal)!}"  name="qtddAulasTotal" type="number" class="form-control" id="qtddAulasTotal">
                           </div>
                           <div class="form-group">
                                <label for="alunosConcordaram">Lista de Aunos que concordaram:</label>
@@ -71,10 +88,6 @@
                           <div class="form-group">
                                <label for="campus">Campus:</label>
                                <input value="${(requerimentoAtual.campus)!}"  name="campus" type="text" class="form-control" id="campus">
-                          </div>
-                          <div class="form-group">
-                               <label for="departamento">Departamento:</label>
-                               <input value="${(requerimentoAtual.departamento)!}"  name="departamento" type="text" class="form-control" id="departamento">
                           </div>
                           <div class="form-group">
                                <label for="file">Lista de Anuência:</label>
@@ -110,16 +123,16 @@
                                   <tr>
                                       <td>${requerimento.dataAusencia}</td>
                                       <td>${requerimento.dataReposicao}</td>
-                                      <td>${requerimento.professor}</td>
+                                      <td>${requerimento.professor.nome}</td>
                                       <th>${requerimento.coordenador}</td>
-                                      <th>${requerimento.disciplina}</td>
+                                      <th>${requerimento.disciplina.nome}</td>
                                       <th>${requerimento.aulasParaRepor}</td>
                                       <th>${requerimento.qtddAulasTotal}</td>
                                       <th>${requerimento.alunosConcordaram}</td>
                                       <th>${requerimento.motivoAusencia}</td>
                                       <th>${requerimento.porcentagemConcordam}</td>
                                       <td>${requerimento.campus}</td>
-                                      <td>${requerimento.departamento}</td>
+                                      <td>${requerimento.departamento.nome}</td>
                                       <td>
                                           <a href="/requerimento/prepara-alterar?id=${requerimento.id}">Alterar</a>
                                           <a href="/requerimento/excluir?id=${requerimento.id}">Excluir</a>

@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DisciplinaModel {
     private int id;
+    private String codigo;
     private String nome;
     private ProfessorModel professor;
     private CursoModel curso;
+
 }

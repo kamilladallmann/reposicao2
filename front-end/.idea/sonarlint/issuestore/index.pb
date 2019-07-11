@@ -21,3 +21,7 @@ k
 ;src/main/java/br/edu/utfpr/apresentacao/ProfessorModel.java,9\a\9a1be0e1ce3bf70cb1b472d1dc9e069a9bc5a5a6
 k
 ;src/main/java/br/edu/utfpr/apresentacao/PaisController.java,b\e\beebb2e22a1e2be278352ddffd12a4ce257ee75b
+n
+>src/main/java/br/edu/utfpr/apresentacao/RequerimentoModel.java,0\2\02c8b03391547ae1aaf943bfbc199456d86ef930
+s
+Csrc/main/java/br/edu/utfpr/apresentacao/RequerimentoController.java,7\b\7b2f308eeb020a3db1c38a9711169b4fd78906a2

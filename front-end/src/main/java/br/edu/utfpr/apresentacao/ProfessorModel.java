@@ -13,6 +13,7 @@ public class ProfessorModel {
     private int id;
     private String nome;
     private String siape;
-    private String departamento;
+    private DepartamentoModel departamento;
+    private int departamentoId;
     private String campus;
 }

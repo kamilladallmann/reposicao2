@@ -12,14 +12,14 @@ public class RequerimentoDTO {
     private int id;
     private String dataAusencia;
     private String dataReposicao;
-    private String professor;
+    private ProfessorDTO professor;
     private String coordenador;
-    private String disciplina;
+    private DisciplinaDTO disciplina;
     private String aulasParaRepor;
     private int qtddAulasTotal;
     private String alunosConcordaram;
     private String motivoAusencia;
     private double porcentagemConcordam;
     private String campus;
-    private String departamento;
+    private DepartamentoDTO departamento;
 }

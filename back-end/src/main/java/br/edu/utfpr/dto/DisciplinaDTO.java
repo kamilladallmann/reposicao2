@@ -7,7 +7,9 @@ import lombok.Data;
 @Builder
 public class DisciplinaDTO {
     private int id;
+    private String codigo;
     private String nome;
-    private String professor;
-    private String curso;
+    private ProfessorDTO professor;
+    private CursoDTO curso;
+
 }

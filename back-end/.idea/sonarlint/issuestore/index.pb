@@ -1,16 +1,10 @@
 
-[
-+src/main/java/br/edu/utfpr/dao/PaisDAO.java,4\7\47c10fd81184725d74397cd216c0db2f5f76428f
 i
 9src/main/java/br/edu/utfpr/ProjectExampleApplication.java,2\3\2316f32f858363be95c431c458e93984a8af3f50
-c
-3src/main/java/br/edu/utfpr/servico/ServicoPais.java,e\2\e27c05fa37855178f9cb1225638b69814e97d962
 \
 ,src/main/java/br/edu/utfpr/dto/CursoDTO.java,9\8\986c93631aa397c3d024233bfaf300d9468ac09e
 a
 1src/main/java/br/edu/utfpr/dto/DisciplinaDTO.java,8\6\860fe4b0d0638980170393b8f9c34271d877017e
-[
-+src/main/java/br/edu/utfpr/dto/PaisDTO.java,f\7\f7f79efb1ba682c58d457252dbba50f7c6b10b0f
 d
 4src/main/java/br/edu/utfpr/servico/ServicoCurso.java,c\3\c35c392703b1fa2368e3c7491d439736892a3a9c
 k
@@ -27,3 +21,9 @@ h
 0src/main/java/br/edu/utfpr/dto/ProfessorDTO.java,c\4\c450039b96f09ce86690ebb6cb9f93781f550351
 i
 9src/main/java/br/edu/utfpr/servico/ServicoDisciplina.java,1\7\17b99367a63f86b24377f96164bffa4abdef991e
+[
++src/main/java/br/edu/utfpr/dto/AulaDTO.java,a\7\a7c0b65287968d692346ae1ca6d1948b6ef3b585
+c
+3src/main/java/br/edu/utfpr/dto/RequerimentoDTO.java,e\f\efc0a7c25b5766f5b56bdf495cc8d9497f2c890d
+k
+;src/main/java/br/edu/utfpr/servico/ServicoRequerimento.java,2\b\2ba7d5654d443dab73519362b85e7a766675d2af
